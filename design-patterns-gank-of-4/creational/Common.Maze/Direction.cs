@@ -4,6 +4,6 @@ public enum Direction
 {
     North,
     South,
-    East
+    East,
     West
 }
