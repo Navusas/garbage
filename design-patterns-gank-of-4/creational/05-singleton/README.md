@@ -1,7 +1,7 @@
-## Abstract Factory
+## Singleton
 
-Page: 87
+Page: 127
 
 **Summary**
 
-Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+Ensure a class has only one instance, and provide a global point of access to it.

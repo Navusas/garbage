@@ -1,7 +1,7 @@
-## Abstract Factory
+## Prototype
 
-Page: 87
+Page: 117
 
 **Summary**
 
-Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.

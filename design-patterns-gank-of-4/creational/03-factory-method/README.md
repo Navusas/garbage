@@ -1,7 +1,7 @@
-## Abstract Factory
+## Factory Method
 
-Page: 87
+Page: 107
 
 **Summary**
 
-Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
