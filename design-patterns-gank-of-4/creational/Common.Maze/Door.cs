@@ -3,14 +3,15 @@ namespace Common.Maze;
 public class Door : MapSite
 {
     public bool IsOpen { get; set; }
-    public Room FromRoow { get; set; }
-    public Room ToRoom { get; set; }
+    private Room _fromRoom;
+    private Room _toRoom;
 
     public Door(Room fromRoom, Room toRoom, bool isOpen = false)
     {
-        FromRoow = fromRoom;
-        ToRoom = toRoom;
+        _fromRoom = fromRoom;
+        _toRoom = toRoom;
         IsOpen = isOpen;
     }
+    public Room OtherSideFrom(Room room) => throw new NotImplementedException();
     public override void Enter() => throw new NotImplementedException();
 }
