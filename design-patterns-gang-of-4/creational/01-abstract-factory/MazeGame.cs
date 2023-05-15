@@ -22,10 +22,10 @@ internal class MazeGame
         room1.SetSide(Direction.South, factory.MakeWall());
         room1.SetSide(Direction.West, factory.MakeWall()); 
 
-        room1.SetSide(Direction.North, factory.MakeWall() );
-        room1.SetSide(Direction.East, factory.MakeWall());
-        room1.SetSide(Direction.South, factory.MakeWall());
-        room1.SetSide(Direction.West, door);
+        room2.SetSide(Direction.North, factory.MakeWall());
+        room2.SetSide(Direction.East, factory.MakeWall());
+        room2.SetSide(Direction.South, factory.MakeWall());
+        room2.SetSide(Direction.West, door);
 
         return maze;
     }
