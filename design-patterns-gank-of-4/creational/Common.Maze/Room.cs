@@ -8,17 +8,8 @@ public class Room : MapSite
     {
         RoomNumber = roomNumber;
     }
-    public MapSite GetSide(Direction direction)
-    {
-        throw new NotImplementedException();
-    }
-    public void SetSide(Direction direction, MapSite mapSite)
-    {
-        throw new NotImplementedException();
-    }
 
-    public override void Enter()
-    {
-        throw new NotImplementedException();
-    }
+    public MapSite GetSide(Direction direction) => throw new NotImplementedException();
+    public void SetSide(Direction direction, MapSite mapSite) => throw new NotImplementedException();
+    public override void Enter() => throw new NotImplementedException();
 }
