@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "creational", "creational", "{28C8DDA1-B1EE-40CC-9BDC-60C39DFCEC34}"
+	ProjectSection(SolutionItems) = preProject
+		creational\README.md = creational\README.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-builder", "creational\02-builder\02-builder.csproj", "{E17C0FCF-7D4E-4735-8D29-646E7E073A70}"
 EndProject
