@@ -14,6 +14,9 @@ public class RoomWithABomb : Room
     }
 }
 
+/// <summary>
+/// This factory has the same doors, but the rooms are bombed.
+/// </summary>
 public class BombedMazeFactory
 {
     public virtual Wall MakeWall() => new BombedWall();

@@ -26,6 +26,10 @@ public class DoorNeedingSpell : Door
     }
 }
 
+
+/// <summary>
+/// The enchanted maze factory has the same walls, but the rooms are enchanted and the doors need a spell to be opened.
+/// </summary>
 public class EnchantedMazeFactory : MazeFactory
 {
     private Spell CastSpell() => new();

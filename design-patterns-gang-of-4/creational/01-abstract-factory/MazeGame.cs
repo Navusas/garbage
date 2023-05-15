@@ -2,6 +2,9 @@ using Common.Maze;
 
 namespace DesignPatterns.AbstractFactory;
 
+/// <summary>
+/// A maze with 2 rooms and 1 door.
+/// </summary>
 internal class MazeGame
 {
     public Maze CreateMaze(MazeFactory factory)
