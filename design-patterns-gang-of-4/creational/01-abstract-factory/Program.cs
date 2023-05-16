@@ -1,5 +1,3 @@
-
-using System.Text.Json;
 using DesignPatterns.AbstractFactory;
 /*
  * Here, we can use a different factory to create a completely different maze.
