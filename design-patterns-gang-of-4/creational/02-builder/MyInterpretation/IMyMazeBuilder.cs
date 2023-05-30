@@ -34,6 +34,7 @@ public class MyMazeBuilder : IMyMazeBuilder
     public IMyMazeBuilder BuildDoor(int roomFrom, int roomTo)
     {
         // some code here
+        return this;
     }
 
     public Maze GetMaze()

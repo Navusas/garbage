@@ -36,12 +36,13 @@ public class MyMazeBuilder2 : IMyMazeBuilder2
     public IMyMazeBuilder2 BuildDoor(int roomFrom, int roomTo)
     {
         // some code here
+        return this;
     }
 
     public Maze Build()
     {
         // create maze
-        if (!_buildMazeCalled) throw new InvalidOperationException("Must call `BuildMaze()` method") 
+        if (!_buildMazeCalled) throw new InvalidOperationException("Must call `BuildMaze()` method");
         var maze = new Maze();
 
         if (_roomNumbersToAdd.Any())
