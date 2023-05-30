@@ -20,6 +20,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-abstract-factory", "crea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Maze", "creational\Common.Maze\Common.Maze.csproj", "{1C160BB4-E06E-44A8-8DA4-B0168B464FBC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "structural", "structural", "{C49F2F36-4F09-4D98-8C97-B71869B0E0F7}"
+	ProjectSection(SolutionItems) = preProject
+		creational\README.md = creational\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06-adapter", "structural\06-adapter\06-adapter.csproj", "{74A0CAE3-B3FF-48F9-B218-57874A0FBB5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +60,10 @@ Global
 		{1C160BB4-E06E-44A8-8DA4-B0168B464FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C160BB4-E06E-44A8-8DA4-B0168B464FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C160BB4-E06E-44A8-8DA4-B0168B464FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74A0CAE3-B3FF-48F9-B218-57874A0FBB5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74A0CAE3-B3FF-48F9-B218-57874A0FBB5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74A0CAE3-B3FF-48F9-B218-57874A0FBB5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74A0CAE3-B3FF-48F9-B218-57874A0FBB5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E17C0FCF-7D4E-4735-8D29-646E7E073A70} = {28C8DDA1-B1EE-40CC-9BDC-60C39DFCEC34}
@@ -61,5 +72,6 @@ Global
 		{D5DDE91D-6634-4ADD-87AF-D4A913E27BDB} = {28C8DDA1-B1EE-40CC-9BDC-60C39DFCEC34}
 		{EEE538CF-8D9A-42C0-BEA6-820997F957EA} = {28C8DDA1-B1EE-40CC-9BDC-60C39DFCEC34}
 		{1C160BB4-E06E-44A8-8DA4-B0168B464FBC} = {28C8DDA1-B1EE-40CC-9BDC-60C39DFCEC34}
+		{74A0CAE3-B3FF-48F9-B218-57874A0FBB5A} = {C49F2F36-4F09-4D98-8C97-B71869B0E0F7}
 	EndGlobalSection
 EndGlobal
