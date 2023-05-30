@@ -1,6 +1,6 @@
 using Common.Maze;
 
-namespace DesignPatterns.AbstractFactory;
+namespace DesignPatterns.Creational.AbstractFactory;
 
 public class Spell {}
 

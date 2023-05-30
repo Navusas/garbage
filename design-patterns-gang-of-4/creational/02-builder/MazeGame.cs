@@ -1,7 +1,7 @@
 using Common.Maze;
-using DesignPatterns.Builder.MyInterpretation;
+using DesignPatterns.Creational.Builder.MyInterpretation;
 
-namespace DesignPatterns.Builder;
+namespace DesignPatterns.Creational.Builder;
 
 public static class MazeGame
 {

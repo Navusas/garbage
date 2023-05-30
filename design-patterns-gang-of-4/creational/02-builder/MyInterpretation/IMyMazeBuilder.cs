@@ -1,6 +1,6 @@
 using Common.Maze;
 
-namespace DesignPatterns.Builder.MyInterpretation;
+namespace DesignPatterns.Creational.Builder.MyInterpretation;
 
 /// <summary>
 /// I like this one more, because it gives me a LINQ type of experience

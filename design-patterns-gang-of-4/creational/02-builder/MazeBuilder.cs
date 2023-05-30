@@ -1,6 +1,6 @@
 using Common.Maze;
 
-namespace DesignPatterns.Builder;
+namespace DesignPatterns.Creational.Builder;
 
 public abstract class MazeBuilder
 {

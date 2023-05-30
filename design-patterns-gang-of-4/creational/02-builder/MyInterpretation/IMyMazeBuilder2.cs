@@ -1,6 +1,6 @@
 using Common.Maze;
 
-namespace DesignPatterns.Builder.MyInterpretation;
+namespace DesignPatterns.Creational.Builder.MyInterpretation;
 
 /// <summary>
 /// OK, this isn't so great, because BuildDoor depends on BuildRoom.

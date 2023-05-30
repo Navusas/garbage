@@ -1,4 +1,4 @@
-using DesignPatterns.AbstractFactory;
+using DesignPatterns.Creational.AbstractFactory;
 /*
  * Here, we can use a different factory to create a completely different maze.
  * The power of the abstract factory pattern is that we can change the maze completely by just changing this one line,

@@ -1,6 +1,6 @@
 using Common.Maze;
 
-namespace DesignPatterns.AbstractFactory;
+namespace DesignPatterns.Creational.AbstractFactory;
 
 /// <summary>
 /// This class is an entry point.

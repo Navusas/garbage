@@ -1,5 +1,5 @@
-﻿using DesignPatterns.Builder;
-using DesignPatterns.Builder.MyInterpretation;
+﻿using DesignPatterns.Creational.Builder;
+using DesignPatterns.Creational.Builder.MyInterpretation;
 
 // simple 
 var builder = new SimpleMazeBuilder();

@@ -1,6 +1,6 @@
 using Common.Maze;
 
-namespace DesignPatterns.AbstractFactory;
+namespace DesignPatterns.Creational.AbstractFactory;
 
 /// <summary>
 /// A maze with 2 rooms and 1 door.
