@@ -62,6 +62,8 @@ public class Client
 {
     public Client()
     {
+        // We new this here instead of constructor, because this is more testable.
+        // (We can mock the library, and pass it to Adapter)
         ITargetAdapter adapter = new AdapterA( new LibraryA() );
         adapter.Open();
         adapter.Close();
