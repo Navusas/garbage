@@ -2,3 +2,6 @@
 
 **/obj
 **/bin
+
+# Eclude Python environment(s)
+machine-learning/pytorch2
