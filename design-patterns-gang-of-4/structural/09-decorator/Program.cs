@@ -6,14 +6,14 @@ Console.WriteLine("09-Decorator");
 // The idea is that you have a base component, and decorate it with other components, if needed.
 // The decorators are also components, can be added at runtime, and can be nested.
 
-// var component = new VisualComponent();
-// var borderDecorator = new BorderDecorator(component, 5);
-// var scrollDecorator = new ScrollDecorator(borderDecorator);
-// scrollDecorator.Draw();
+var component = new VisualComponent();
+var borderDecorator = new BorderDecorator(component, 5);
+var scrollDecorator = new ScrollDecorator(borderDecorator);
+scrollDecorator.Draw();
 
 // My playground:
-var gamestate = GameState.GetInstance();
-gamestate.Play();
+// var gamestate = GameState.GetInstance();
+// gamestate.Play();
 
 // Questions: When you want to remove a decorator, do you reconstruct the entire object from scratch?
 // ^ If so, how do you keep a state of what has been called? 
