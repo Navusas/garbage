@@ -15,6 +15,10 @@ Console.WriteLine("09-Decorator");
 var gamestate = GameState.GetInstance();
 gamestate.Play();
 
+// Questions: When you want to remove a decorator, do you reconstruct the entire object from scratch?
+// ^ If so, how do you keep a state of what has been called? 
+// ^ How do you do that with multiple decorators being added of the same type?
+
 
 class VisualComponent
 {
