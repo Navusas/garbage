@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Structural.Decorator;
+﻿using System.Diagnostics;
 
 Console.WriteLine("09-Decorator");
 
@@ -62,8 +62,16 @@ class BorderDecorator : Decorator
 
     public override void Draw()
     {
+        // Decorator is amazing at this kind of stuff:
+        // i.e. : logging / profiling / timing ,etc
+        var timer = new Stopwatch();
+        timer.Start();
+        
         base.Draw();
         DrawBorder(_width);
+        
+        timer.Stop();
+        Console.WriteLine("Time elapsed: {0}", timer.Elapsed);
     }
 
     private void DrawBorder(int width)

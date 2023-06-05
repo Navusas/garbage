@@ -6,7 +6,6 @@ var mortgage = new Mortgage();
 var customer = new Customer("Ann McKinsey");
 var eligible = mortgage.IsEligible(customer, 125000);
 
-
 internal class Bank
 {
     public bool HasSufficientSavings(Customer c, int amount)
