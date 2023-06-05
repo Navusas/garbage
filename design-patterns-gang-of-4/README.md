@@ -17,8 +17,8 @@ This folder contains my implementation of the design patterns defined by the gan
 | Structural   | Adapter              | :white_check_mark: | :white_check_mark:       |
 |              | Bridge               | :x: | :x:       |
 |              | Composite            | :x: | :x:       |
-|              | Decorator            | :x: | :x:       |
-|              | Facade               | :x: | :x:       |
+|              | Decorator            | :x: | :white_check_mark:       |
+|              | Facade               | :x: | :white_check_mark:       |
 |              | Flyweight            | :x: | :x:       |
 |              | Proxy                | :x: | :x:       |
 | Behavioral   | Chain of Responsibility | :x: | :x:       |
