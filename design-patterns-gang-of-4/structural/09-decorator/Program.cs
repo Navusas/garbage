@@ -1,13 +1,20 @@
-﻿Console.WriteLine("09-Decorator");
+﻿using DesignPatterns.Structural.Decorator;
+
+Console.WriteLine("09-Decorator");
 
 // Below is the example from the book.
 // The idea is that you have a base component, and decorate it with other components, if needed.
 // The decorators are also components, can be added at runtime, and can be nested.
 
-var component = new VisualComponent();
-var borderDecorator = new BorderDecorator(component, 5);
-var scrollDecorator = new ScrollDecorator(borderDecorator);
-scrollDecorator.Draw();
+// var component = new VisualComponent();
+// var borderDecorator = new BorderDecorator(component, 5);
+// var scrollDecorator = new ScrollDecorator(borderDecorator);
+// scrollDecorator.Draw();
+
+// My playground:
+var gamestate = GameState.GetInstance();
+gamestate.Play();
+
 
 class VisualComponent
 {
