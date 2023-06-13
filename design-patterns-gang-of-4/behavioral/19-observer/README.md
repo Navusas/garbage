@@ -1,25 +1,17 @@
-## Adapter
+## Observer
 
-Page: 139
+Page: 293
 
 **Summary**
 
-Adapter Design Pattern is used to convert one interface to another so that it can be used by another class. This pattern lets classes work together that couldn't otherwise because of incompatible interfaces.
-
-Often the Adapter is responsible for functionality the Adaptee doesn't provide.
-
-Think about it this way:
-1. You found an amazing library, which under the hood does exactly waht you want, but it's interface is not what you need.
-2. You can't change the library, because it's not yours.
-3. So instead, you create your own interface, which matches what your client needs, and wrap the library in your code, which implements your interface, and uses the library under the hood.
-4. The interface you created would be called Adapter, and the library would be called Adaptee.
-
+Define a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.
 
 **Applicability**
 
-Use the Adapter pattern when:
-1. You want to use an existing class, and its interface does not match the one you need.
-2. You want to create a reusable class that cooperates with unrelated or unforeseen classes, that is, classes that don't necessarily have compatible interfaces.
-3. You need to use several existing subclasses, but it's impractical to adapt their interface by subclassing every one. An object adapter can adapt the interface of its parent class.
+- when an abstraction has two aspects, one dependent on the other. Encapsulating these aspects in separate objects lets you vary and reuse them independently.
+
+- when a change to one object requires changing others, and you don't know how many objects need to be changed.
+
+- when an object should be able to notify other objects without making assumptions about who these objects are. In other words, you don't want these objects tightly coupled.
 
 
