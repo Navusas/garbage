@@ -15,10 +15,10 @@ This folder contains my implementation of the design patterns defined by the gan
 |              | Prototype            | :white_check_mark: | :x:       |
 |              | Singleton            | :white_check_mark: | :white_check_mark:       |
 | Structural   | Adapter              | :white_check_mark: | :white_check_mark:       |
-|              | Bridge               | :x: | :x:       |
-|              | Composite            | :x: | :x:       |
-|              | Decorator            | :x: | :white_check_mark:       |
-|              | Facade               | :x: | :white_check_mark:       |
+|              | Bridge               | :white_check_mark: | :white_check_mark:       |
+|              | Composite            | :white_check_mark: | :white_check_mark:       |
+|              | Decorator            | :white_check_mark: | :white_check_mark:       |
+|              | Facade               | :white_check_mark: | :white_check_mark:       |
 |              | Flyweight            | :x: | :x:       |
 |              | Proxy                | :x: | :x:       |
 | Behavioral   | Chain of Responsibility | :x: | :x:       |
