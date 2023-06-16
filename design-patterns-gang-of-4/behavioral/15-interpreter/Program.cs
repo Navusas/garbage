@@ -2,22 +2,29 @@
 
 const string roman = "MCMXXVIII";
 var context = new Context(roman);
-// Build the 'parse tree'
-var tree = new List<Expression>
-{
-    new ThousandExpression(),
-    new HundredExpression(),
-    new TenExpression(),
-    new OneExpression()
-};
-// Interpret
-foreach (var exp in tree)
-{
-    exp.Interpret(context);
-}
+var interpreter = new RomanNumberInterpreter();
+interpreter.Interpret(context);
 
 Console.WriteLine("{0} = {1}", roman, context.Output);
 
+
+class RomanNumberInterpreter
+{
+    private readonly List<Expression> _tree = new()
+    {
+        new ThousandExpression(),
+        new HundredExpression(),
+        new TenExpression(),
+        new OneExpression()
+    };
+    public void Interpret(Context context) 
+    {
+        foreach (var exp in _tree)
+        {
+            exp.Interpret(context);
+        }
+    }
+}
 
 /// <summary>
 /// The 'Context' class

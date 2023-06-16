@@ -2,6 +2,11 @@ using System.Collections;
 
 namespace DesignPatterns.Behavioral.Iterator;
 
+/// <summary>
+/// Things to note:
+/// 1. The iterator doesn't have to have a full collection to work (when somebody calls MoveNext(), you can fetch a value, or run some code, etc)
+/// 2. You would normally use C# built-in iterators instead of implementing your own (yield return)
+/// </summary>
 public static class StringTraversalExample
 {
     public static void Run()
