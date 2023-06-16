@@ -1,1 +1,4 @@
-﻿Console.WriteLine("07-bridge");
+﻿using DesignPatterns.Behavioral.Mediator;
+
+ChatRoomExample.Run();
+AirTrafficControllerExample.Run();

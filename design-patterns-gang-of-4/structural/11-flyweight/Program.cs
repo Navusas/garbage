@@ -1,25 +1,25 @@
 ﻿var colors  = new[]{ "Red", "Green", "Blue", "White", "Black" };
 
-for(int i = 0 ; i < 100; i++)
+for(int i = 0 ; i < 10; i++)
 {
     var circle = (Circle)ShapeFactory.GetCircle(colors[new Random().Next(0, 5)]);
-    circle.Draw();
+    circle.Draw(i, i+1);
 }
 
 public interface IShape
 {
-    void Draw();
+    void Draw(int x, int y);
 }
 
 public class Circle : IShape
 {
-    public string Color { get; set; }
+    public string Color { get; init; }
     public Circle(string color)
     {
         Color = color;
     }
 
-    public void Draw()
+    public void Draw(int x, int y)
     {
         Console.WriteLine($"Drawing a {Color} circle");
     }
