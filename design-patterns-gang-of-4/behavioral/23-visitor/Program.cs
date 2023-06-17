@@ -2,7 +2,7 @@
     new Node<int>
     {
         Left = new Leaf<int> { Value = 1 },
-        Right = new Node<int>()
+        Right = new Node<int>
         {
             Left = new Leaf<int> { Value = 2 },
             Right = new Leaf<int> { Value = 3 }
