@@ -1,8 +1,5 @@
 namespace DesignPatterns.Behavioral.Strategy;
 
-/// <summary>
-/// This is more of a Java-like style, where you have HasNext() and MoveNext() 
-/// </summary>
 public static class SimpleExample
 {
     public static void Run()

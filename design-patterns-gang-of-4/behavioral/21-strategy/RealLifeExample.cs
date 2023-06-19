@@ -1,3 +1,7 @@
+namespace DesignPatterns.Behavioral.Strategy;
+/**
+* This is more of a real-life example, where a strategy is used to determine if a bank can issue a loan or a credit card.
+*/
 
 public static class RealLifeExample
 {
