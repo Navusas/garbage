@@ -1,1 +1,5 @@
-﻿Console.WriteLine("07-bridge");
+﻿using DesignPatterns.Behavioral.Strategy;
+
+//SimpleExample.Run();
+
+RealLifeExample.Run();
