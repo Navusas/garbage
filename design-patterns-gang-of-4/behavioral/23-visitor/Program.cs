@@ -13,7 +13,7 @@ var leafCounter = new TreeLeafCounter<int>();
 tree.Accept(leafCounter);
 Console.WriteLine(leafCounter.Count);
 
-var nodeCounter = new TreeLeafCounter<int>();
+var nodeCounter = new TreeNodeCounter<int>();
 tree.Accept(nodeCounter);
 Console.WriteLine(nodeCounter.Count);
 
@@ -49,7 +49,7 @@ class Node<T> : TreePart<T>
     }
 }
 
-class TreeVisitor<T>
+abstract class TreeVisitor<T>
 {
     public virtual void VisitLeaf(Leaf<T> leaf)
     {
