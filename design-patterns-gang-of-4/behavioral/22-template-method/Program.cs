@@ -1,1 +1,1 @@
-﻿Console.WriteLine("07-bridge");
+﻿Console.WriteLine("22-template-method");
