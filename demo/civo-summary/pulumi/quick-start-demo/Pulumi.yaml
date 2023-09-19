@@ -1,0 +1,3 @@
+name: quick-start-demo
+runtime: dotnet
+description: A minimal Azure Native C# Pulumi program
