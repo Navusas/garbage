@@ -1,16 +1,16 @@
-namespace Microservice;
+namespace Marvellous.Site.Home.PageHandlers;
 
 public class PageBuilder
 {
     private readonly string _relativePathToPage;
-    private string _body;
+    private string? _body;
 
     public PageBuilder(string relativePathToPage)
     {
         _relativePathToPage = relativePathToPage;
     }
 
-    public PageBuilder WithBody(string body)
+    public PageBuilder WithBody(string? body)
     {
         _body = body;
         return this;

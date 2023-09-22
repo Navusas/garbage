@@ -8,14 +8,15 @@ defaulted = { default = "test value" }
 required = { default = "true" }
 
 [[component]]
-id = "hello"
-source = "bin/Release/net7.0/Microservice.wasm"
+id = "home"
+source = "Marvellous.Site.Home/bin/Release/net7.0/Marvellous.Site.Home.wasm"
 allowed_http_hosts = [ "https://spin.fermyon.dev", "http://127.0.0.1:3001" ]
-files = [{ source = "assets", destination = "/assets" }]
+files = [{ source = "Marvellous.Site.Home/assets", destination = "/assets" }]
 [component.config]
 defaulted = "{{ defaulted }}"
 required = "{{ required }}"
 [component.build]
 command = "dotnet build -c Release"
+workdir = "Marvellous.Site.Home"
 [component.trigger]
 route = "/..."
