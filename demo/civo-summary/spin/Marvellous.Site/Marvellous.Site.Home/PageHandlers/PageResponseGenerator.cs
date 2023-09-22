@@ -1,4 +1,6 @@
-﻿using Fermyon.Spin.Sdk;
+﻿using System.Collections.Generic;
+using System.Net;
+using Fermyon.Spin.Sdk;
 
 namespace Marvellous.Site.Home.PageHandlers;
 
@@ -6,7 +8,7 @@ public static class PageResponseGenerator
 {
     public static HttpResponse Generate(string? body)
     {
-        var newPage = new PageBuilder("Base.html")
+        var newPage = new PageBuilder("base.html")
             .WithBody(body)
             .Build();
         
