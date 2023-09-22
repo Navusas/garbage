@@ -11,7 +11,7 @@ zsh
 az login
 
 # Set correct subscription
-az account set -s b247b3ce-7fc4-4f48-9414-c62c97950e99
+az account set -s 70cfb438-fdb0-4032-9386-d4c7ab1f2c34
 
 
 ## Create new Project
