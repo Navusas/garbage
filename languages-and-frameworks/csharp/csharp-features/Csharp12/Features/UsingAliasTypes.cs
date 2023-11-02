@@ -6,25 +6,28 @@ Description:    Allow using alias directive to reference any kind of Type
 Link:           https://github.com/dotnet/csharplang/blob/main/proposals/csharp-12.0/using-alias-types.md
 */
 
+using Point = (int x, int y);
+
 public class UsingAliasType
 {
-    public void DemonstrateBefore() => new UsingAliasType();
+    private ConsoleWriter consoleWriter = new ("C# 12 - UsingAliasType");
+
+    /// <summary>
+    /// In earlier versions of C#, you could only use aliasing for named types and namespaces. 
+    /// This meant that for complex types like tuples, you would have to use their full definition each time.
+    /// </summary>
+    public void DemonstrateBefore() 
+    {
+        (int x, int y) point = (5, 2);
+        consoleWriter.Write($"Before: Point coordinates: {point.x}, {point.y}");
+    }
+
+    /// <summary>
+    /// You can now create aliases for any type, including tuples
+    /// </summary>
     public void DemonstrateAfter() 
     {
-        ConsoleWriter.Write("RunAfter started");
-
-        using Point point = new (5, 2);
-
-        ConsoleWriter.Write("RunAfter ended");
+        Point point = (5, 2);
+        consoleWriter.Write($"After: Point coordinates: {point.x}, {point.y}");
     }
-}
-
-public record struct Point(int X, int Y) : IDisposable
-{
-    public readonly ConsoleWriter ConsoleWriter = new("Using Alias Type");
-
-    public void Dispose() {
-        ConsoleWriter.Write($"{ToString()} disposed");
-    }
-    public override string ToString() => $"Point(X: {X}, Y: {Y})";
 }
