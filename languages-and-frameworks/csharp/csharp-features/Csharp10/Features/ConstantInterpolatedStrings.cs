@@ -7,6 +7,8 @@ Link:           https://github.com/dotnet/csharplang/blob/main/proposals/csharp-
 */
 public class ConstantInterpolatedStrings
 {
+    private ConsoleWriter consoleWriter = new ("C# 10 - ConstantInterpolatedStrings");
+
     const string Greeting = "Greetings";
     const string EmployeeName = "John";
     const string WelcomingMessage = "Welcome to the team!";
@@ -14,12 +16,12 @@ public class ConstantInterpolatedStrings
     public void DemonstrateBefore()
     {
         const string Message = Greeting + ", " + EmployeeName + "! " + WelcomingMessage;
-        Console.WriteLine(Message);
+        consoleWriter.Write($"Before: '{Message}'");
     }
 
     public void DemonstrateAfter()
     {
         const string Message = $"{Greeting}, {EmployeeName}! {WelcomingMessage}";
-        Console.WriteLine(Message);
+        consoleWriter.Write($"After: '{Message}'");
     }
 }
