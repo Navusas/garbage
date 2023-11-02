@@ -50,9 +50,13 @@ public class RequiredMembers
 
 
         // ------------------------------------
+        
         // var animation = new DanceMoveAnimation();
         // Console.WriteLine(animation);
         // // Console.WriteLine(animation.ToDanceMoveIdentifier());
+
+
+        // ------------------------------------
     }
 }
 
@@ -109,6 +113,7 @@ public class RequiredMembersPreviouslyUsingRecords
 /// - Same for class, structs and records
 /// - Doesn't work with interfaces
 /// - Cannot use with fixed, ref readonly, ref, const, static. Required must be settable.
+/// - All values are considered 'default' by analyzer. 
 /// </summary>
 public class RequiredMembersAfter
 {
@@ -170,7 +175,7 @@ public class RequiredMembersAfter
 // {
 //     public required string DanceMoveName { get;set;}
 
-//     // [SetsRequiredMembersAttribute]
+//     // [SetsRequiredMembers]
 //     public DanceMoveAnimation()
 //     {
 
