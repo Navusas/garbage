@@ -1,4 +1,4 @@
-namespace CsharpNerds.Csharp12;
+namespace Csharp12;
 
 public class UsingAliasType
 {

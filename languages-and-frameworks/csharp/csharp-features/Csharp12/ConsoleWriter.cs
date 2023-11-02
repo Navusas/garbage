@@ -1,4 +1,4 @@
-namespace CsharpNerds;
+namespace Csharp12;
 
 public record ConsoleWriter(string Prefix)
 {
