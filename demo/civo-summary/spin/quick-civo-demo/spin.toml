@@ -1,0 +1,14 @@
+spin_manifest_version = "1"
+authors = ["Navusas <D.Giedraitis7@gmail.com>"]
+description = ""
+name = "quick-civo-demo"
+version = "1.0.0"
+trigger = { type = "http", base = "/" }
+
+[[component]]
+id = "quick_civo_demo"
+source = "bin/Release/net7.0/QuickCivoDemo.wasm"
+[component.build]
+command = "dotnet build -c Release"
+[component.trigger]
+route = "/..."
