@@ -1,6 +1,6 @@
 namespace CsharpNerds.Csharp12;
 
-public class UsingAliasType : IFeature
+public class UsingAliasType
 {
     public readonly ConsoleWriter ConsoleWriter = new("Using Alias Type");
     public string Title => "Allow using alias directive to reference any kind of Type";

@@ -1,7 +1,27 @@
 namespace CsharpNerds.AsyncAwait;
 
+
+public static class FireAndForgetVsAwaitExtensions
+{
+    public static async Task RunAsyncAwaitExample() 
+    {
+        Console.WriteLine("asyncAndAwait started");
+        var asyncAndAwait = new FireAndForgetVsAwait();
+        await asyncAndAwait.InvokeAsyncAwait();
+        Console.WriteLine("asyncAndAwait ended");
+    }
+    
+    public static async Task RunFireAndForgetExample()
+    {
+        Console.WriteLine("fireAndForget started");
+        var fireAndForget = new FireAndForgetVsAwait();
+        await fireAndForget.InvokeFireAndForgetAsync();
+        Console.WriteLine("fireAndForget ended");
+    }
+}
+
 /// <summary>
-/// 
+/// An example to showcase difference of FireAndForget vs Await/Async in action
 /// </summary>
 public class FireAndForgetVsAwait
 {
