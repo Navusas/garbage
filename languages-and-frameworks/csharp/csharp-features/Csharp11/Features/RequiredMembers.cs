@@ -30,23 +30,23 @@ public class RequiredMembers
 
     public void DemonstrateAfter()
     {
-        // var person = new RequiredPerson
-        // {
-        //     FirstName = "Foo",
-        //     LastName = "Bar",
-        //     Title = PersonTitle.Mr,
-        // };
+        var person = new RequiredPerson
+        {
+            FirstName = "Foo",
+            LastName = "Bar",
+            Title = PersonTitle.Mr,
+        };
 
-        // var student = new RequiredStudent()
-        // {
-        //     FirstName = "Foo",
-        //     LastName = "Bar",
-        //     Title = PersonTitle.Mr,
-        //     StudentId = Guid.NewGuid()
-        // };
+        var student = new RequiredStudent()
+        {
+            FirstName = "Foo",
+            LastName = "Bar",
+            Title = PersonTitle.Mr,
+            StudentId = Guid.NewGuid()
+        };
 
-        // Console.WriteLine(person);
-        // Console.WriteLine(student);
+        Console.WriteLine(person);
+        Console.WriteLine(student);
 
 
         // ------------------------------------
@@ -58,8 +58,8 @@ public class RequiredMembers
 
         // ------------------------------------
 
-        var another = new AnotherClass();
-        Console.WriteLine(another);
+        // var another = new AnotherClass();
+        // Console.WriteLine(another);
     }
 }
 
@@ -196,8 +196,8 @@ public class RequiredMembersAfter
 /// With required you are shifting responsibility to the left (i.e. the caller)
 /// and you are also telling the compiler that the value will never be null whilst avoiding the need for a constructor
 ///
-public class AnotherClass
-{
-    public string Name { get; init; }
-    override public string ToString() => Name;
-}
+// public class AnotherClass
+// {
+//     public string Name { get; init; }
+//     override public string ToString() => Name;
+// }
