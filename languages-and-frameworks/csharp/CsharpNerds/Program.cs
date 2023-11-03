@@ -2,8 +2,11 @@
 
 using CsharpNerds.AsyncAwait;
 
-await FireAndForgetVsAwaitExtensions.RunAsyncAwaitExample();
-// FireAndForgetVsAwaitExtensions.RunFireAndForgetExample();
+// await FireAndForgetVsAwaitExtensions.RunAsyncAwaitExample();
+// await FireAndForgetVsAwaitExtensions.RunFireAndForgetExample();
 
+
+// Console.WriteLine("Another long running task started...");
+// await Task.Delay(5000);
 
 Console.WriteLine("Program ended");
