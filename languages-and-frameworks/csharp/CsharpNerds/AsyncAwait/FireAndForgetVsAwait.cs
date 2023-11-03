@@ -29,6 +29,7 @@ public class FireAndForgetVsAwait
     public async Task InvokeAsyncAwait()
     {
         Console.WriteLine("InvokeAsyncAwait: started");
+        await Task.Delay(TimeSpan.FromSeconds(1));
 
         try {
             await LongRunningTask();
@@ -45,6 +46,7 @@ public class FireAndForgetVsAwait
     public async Task InvokeFireAndForgetAsync()
     {
         Console.WriteLine("InvokeFireAndForgetAsync: started");
+        await Task.Delay(TimeSpan.FromSeconds(1));
 
         var _ = LongRunningTask().ContinueWith(t =>
         {
@@ -89,7 +91,6 @@ After:
 try
 {
     await _usageService.AddOpenAiUsageAsync(DateTime.UtcNow, request, response);
-
     _logger.LogDebug("Usage recorded.");
 }
 catch (Exception exception)
