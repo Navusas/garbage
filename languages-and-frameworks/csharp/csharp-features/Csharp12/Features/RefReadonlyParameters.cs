@@ -6,6 +6,12 @@ Description:    Enforce compiler to prevent a method from modifying the passed r
 Link:           https://github.com/dotnet/csharplang/blob/main/proposals/csharp-12.0/ref-readonly-parameters.md
 */
 
+/// <summary>
+/// 'in' vs 'ref readonly'.
+/// 
+/// 'in' -> used to pass read-only reference to a method. It can be used at both the method & the caller. It indicates that the method should not modify the passed parameter.
+/// 'ref readonly' -> only for method declaration. The api/caller/client doesn't care and thus won't break existing codebases. Using `readonly` helps to ensure immutability.
+/// </summary>
 public class RefReadonlyParams
 {
     private ConsoleWriter consoleWriter = new ("C# 12 - RefReadonlyParams");
