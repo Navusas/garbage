@@ -25,6 +25,9 @@ public class RefReadonlyParams
 
     /// <summary>
     /// After C# 12 - using 'ref readonly' to pass a read-only reference
+    /// 
+    /// The idea is, that we can still use `ref` and don't break any existing code, but we can also enforce the compiler
+    /// to prevent any modification to the passed value.
     /// </summary>
     public void DemonstrateAfter(ref readonly int readOnlyValue) 
     {
