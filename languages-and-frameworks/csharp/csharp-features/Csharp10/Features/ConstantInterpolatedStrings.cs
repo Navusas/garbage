@@ -2,7 +2,7 @@ namespace Csharp10;
 
 /*
 Title:          Constant Interpolated Strings
-Description:    Instead of using 
+Description:    Instead of using + to concatenate strings, use string interpolation 
 Link:           https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/constant_interpolated_strings.md
 */
 public class ConstantInterpolatedStrings
