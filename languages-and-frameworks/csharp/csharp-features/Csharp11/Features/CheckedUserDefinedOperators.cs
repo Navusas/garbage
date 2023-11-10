@@ -111,7 +111,6 @@ public struct Int128(long high, ulong low)
     }
 }
 
-
 public struct Int128BeforeChecked(long high, ulong low)
 {
     public long High = high;
