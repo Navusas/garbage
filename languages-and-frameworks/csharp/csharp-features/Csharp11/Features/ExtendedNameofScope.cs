@@ -3,6 +3,22 @@ using System.ComponentModel.DataAnnotations;
 namespace Csharp11;
 
 
+public static class ExtendedNameOfScopeDemo
+{
+    public static void Demonstrate()
+    {
+        var extendedNameOfScope = new ExtendedNameOfScope();
+        extendedNameOfScope.DemonstrateBefore(10);
+        extendedNameOfScope.DemonstrateAfter(20);
+    }
+
+    public static void DemonstrateAdvanced()
+    {
+        var extendedNameOfScopeAdvanced = new ExtendedNameOfScopeAdvanced();
+        extendedNameOfScopeAdvanced.Demonstrate();
+    }
+}
+
 /*
 Title:          Extended Nameof Scope
 Description:    Allow nameof(parameter) inside attribute on method or parameter

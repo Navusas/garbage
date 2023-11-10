@@ -1,6 +1,16 @@
 namespace Csharp11;
 
 
+public static class CheckedUserDefinedOperatorsDemo
+{
+    public static void Demonstrate()
+    {
+        var checkedUserDefinedOperators = new CheckedUserDefinedOperators();
+        checkedUserDefinedOperators.DemonstrateBefore();
+        checkedUserDefinedOperators.DemonstrateAfter();
+    }
+}
+
 /*
 Title:          Checked User Defined Operators
 Description:    Allows to define checked operators for user-defined types to enable overflow checking

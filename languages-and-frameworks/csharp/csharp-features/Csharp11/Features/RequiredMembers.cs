@@ -5,6 +5,16 @@ using static Csharp11.RequiredMembersPreviouslyUsingClasses;
 namespace Csharp11;
 
 
+public static class RequiredMembersDemo
+{
+    public static void Demonstrate()
+    {
+        var requiredMembers = new RequiredMembers();
+        requiredMembers.DemonstrateBefore();
+        requiredMembers.DemonstrateAfter();
+    }
+}
+
 public enum PersonTitle
 {
     Mr,
