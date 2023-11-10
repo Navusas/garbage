@@ -26,23 +26,31 @@ public class CheckedUserDefinedOperators
     /// </summary>
     public void DemonstrateBefore()
     {
-        Int128Before num1 = new (1, ulong.MaxValue); 
-        Int128Before num2 = new (2, 1);
+        Int128BeforeChecked num1 = new (1, ulong.MaxValue); 
+        Int128BeforeChecked num2 = new (2, 1);
 
-        // Unchecked addition
-        Int128Before resultUnchecked = num1 + num2;
-        Console.WriteLine($"Unchecked addition result: High = {resultUnchecked.High}, Low = {resultUnchecked.Low}");
+        // this WOULD NOT be unchecked addition.
+        // throws an exception
+        // Int128BeforeChecked result = num1 + num2;
+        // Console.WriteLine($"Checked addition result: High = {result.High}, Low = {result.Low}");
 
         try
         {
             // Checked addition
-            Int128Before resultChecked = checked(num1 + num2);
-            Console.WriteLine($"Checked addition result: High = {resultChecked.High}, Low = {resultChecked.Low}");
+            Int128BeforeChecked resultChecked = checked(num1 + num2);
+            Console.WriteLine($"DemonstrateBefore: Checked addition result: High = {resultChecked.High}, Low = {resultChecked.Low}");
         }
         catch (OverflowException ex)
         {
-            Console.WriteLine($"Overflow occurred: {ex.Message}");
+            Console.WriteLine($"DemonstrateBefore: Overflow occurred: {ex.Message}");
         }
+
+        Int128Before uncheckedNum1 = new (1, ulong.MaxValue); 
+        Int128Before uncheckedNum2 = new (2, 1);
+
+        Int128Before resultUnchecked = uncheckedNum1 + uncheckedNum2;
+        Console.WriteLine($"DemonstrateBefore: Unchecked addition result: High = {resultUnchecked.High}, Low = {resultUnchecked.Low}");
+
     }
 
     public void DemonstrateAfter()
@@ -52,17 +60,17 @@ public class CheckedUserDefinedOperators
 
         // Unchecked addition
         Int128 resultUnchecked = num1 + num2;
-        Console.WriteLine($"Unchecked addition result: High = {resultUnchecked.High}, Low = {resultUnchecked.Low}");
+        Console.WriteLine($"DemonstrateAfter: Unchecked addition result: High = {resultUnchecked.High}, Low = {resultUnchecked.Low}");
 
         try
         {
             // Checked addition
             Int128 resultChecked = checked(num1 + num2);
-            Console.WriteLine($"Checked addition result: High = {resultChecked.High}, Low = {resultChecked.Low}");
+            Console.WriteLine($"DemonstrateAfter: Checked addition result: High = {resultChecked.High}, Low = {resultChecked.Low}");
         }
         catch (OverflowException ex)
         {
-            Console.WriteLine($"Overflow occurred: {ex.Message}");
+            Console.WriteLine($"DemonstrateAfter: Overflow occurred: {ex.Message}");
         }
     }
 }
@@ -94,12 +102,12 @@ public struct Int128(long high, ulong low)
 }
 
 
-public struct Int128Before(long high, ulong low)
+public struct Int128BeforeChecked(long high, ulong low)
 {
     public long High = high;
     public ulong Low = low;
 
-    public static Int128Before operator +(Int128Before lhs, Int128Before rhs)
+    public static Int128BeforeChecked operator +(Int128BeforeChecked lhs, Int128BeforeChecked rhs)
     {
         long high = lhs.High + rhs.High;
         ulong low = lhs.Low + rhs.Low;
@@ -109,6 +117,20 @@ public struct Int128Before(long high, ulong low)
             throw new OverflowException("Overflow in addition.");
         }
 
+        return new Int128BeforeChecked(high, low);
+    }
+}
+
+
+public struct Int128Before(long high, ulong low)
+{
+    public long High = high;
+    public ulong Low = low;
+
+    public static Int128Before operator +(Int128Before lhs, Int128Before rhs)
+    {
+        long high = lhs.High + rhs.High;
+        ulong low = lhs.Low + rhs.Low;
         return new Int128Before(high, low);
     }
 }
