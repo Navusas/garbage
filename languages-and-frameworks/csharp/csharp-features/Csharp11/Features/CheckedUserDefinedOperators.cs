@@ -3,8 +3,8 @@ namespace Csharp11;
 
 /*
 Title:          Checked User Defined Operators
-Description:    TBD
-Link:           https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/static-abstracts-in-interfaces.md
+Description:    Allows to define checked operators for user-defined types to enable overflow checking
+Link:           https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/checked-user-defined-operators.md
 
 
 Supported operators:
