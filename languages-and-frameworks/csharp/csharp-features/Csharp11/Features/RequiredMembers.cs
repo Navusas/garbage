@@ -20,7 +20,7 @@ Link:           https://github.com/dotnet/csharplang/blob/main/proposals/csharp-
 */
 public class RequiredMembers
 {
-    public void DemonstratePrevious()
+    public void DemonstrateBefore()
     {
         var person = new Person(PersonTitle.Mr, "Foo", "Bar");
         var student = new Student(PersonTitle.Mr, "Foo", "Bar", Guid.NewGuid());
