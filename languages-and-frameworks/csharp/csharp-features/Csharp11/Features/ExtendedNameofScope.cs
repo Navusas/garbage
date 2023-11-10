@@ -28,7 +28,7 @@ public class ExtendedNameOfScope
 {
     public void DemonstrateBefore([LogParameter("value")] int value)
     {
-        Console.WriteLine($"Before C# 11: Logging parameter 'value'");
+        Console.WriteLine($"[ExtendedNameOfScope] Before: Logging parameter 'value'");
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ public class ExtendedNameOfScope
     /// <param name="value"></param>    
     public void DemonstrateAfter([LogParameter(nameof(value))] int value)
     {
-        Console.WriteLine($"After C# 11: Logging parameter '{nameof(value)}'");
+        Console.WriteLine($"[ExtendedNameOfScope] After: Logging parameter '{nameof(value)}'");
     }
 }
 
@@ -53,6 +53,14 @@ public class LogParameterAttribute : Attribute
 }
 
 
+/// <summary>
+/// Above is boring!
+/// 
+/// Let's look at more real-life example.
+/// 
+/// Imagine you have a model with a property which is required only if another property is set to true.
+/// How would you go around it in C#12?
+/// </summary>
 
 
 public class UserRegistrationModel
@@ -102,6 +110,7 @@ public class ExtendedNameOfScopeAdvanced
             IsNewsletterSubscribed = true
         };
 
+        // We expect this to show validation errors
         var validationResults = new List<ValidationResult>();
         var isValid = Validator.TryValidateObject(userRegistrationRequest, new ValidationContext(userRegistrationRequest), validationResults, true);
 
@@ -109,7 +118,7 @@ public class ExtendedNameOfScopeAdvanced
         {
             foreach (var validationResult in validationResults)
             {
-                Console.WriteLine(validationResult.ErrorMessage);
+                Console.WriteLine($"[ExtendedNameOfScopeAdvanced]: {validationResult.ErrorMessage}");
             }
         }
     }

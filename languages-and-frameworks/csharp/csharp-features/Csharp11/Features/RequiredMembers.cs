@@ -34,8 +34,8 @@ public class RequiredMembers
     {
         var person = new Person(PersonTitle.Mr, "Foo", "Bar");
         var student = new Student(PersonTitle.Mr, "Foo", "Bar", Guid.NewGuid());
-        Console.WriteLine(person);
-        Console.WriteLine(student);
+        Console.WriteLine($"[RequiredMembers] Before: {person}");
+        Console.WriteLine($"[RequiredMembers] Before: {student}");
     }
 
     public void DemonstrateAfter()
@@ -55,8 +55,8 @@ public class RequiredMembers
             StudentId = Guid.NewGuid()
         };
 
-        Console.WriteLine(person);
-        Console.WriteLine(student);
+        Console.WriteLine($"[RequiredMembers] After: {person}");
+        Console.WriteLine($"[RequiredMembers] After: {student}");
 
 
         // ------------------------------------

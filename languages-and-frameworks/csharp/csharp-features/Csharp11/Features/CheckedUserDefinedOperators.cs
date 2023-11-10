@@ -48,18 +48,18 @@ public class CheckedUserDefinedOperators
         {
             // Checked addition
             Int128BeforeChecked resultChecked = checked(num1 + num2);
-            Console.WriteLine($"DemonstrateBefore: Checked addition result: High = {resultChecked.High}, Low = {resultChecked.Low}");
+            Console.WriteLine($"[CheckedUserDefinedOperators] Before: Checked addition result: High = {resultChecked.High}, Low = {resultChecked.Low}");
         }
         catch (OverflowException ex)
         {
-            Console.WriteLine($"DemonstrateBefore: Overflow occurred: {ex.Message}");
+            Console.WriteLine($"[CheckedUserDefinedOperators] Before: Overflow occurred: {ex.Message}");
         }
 
         Int128Before uncheckedNum1 = new (1, ulong.MaxValue); 
         Int128Before uncheckedNum2 = new (2, 1);
 
         Int128Before resultUnchecked = uncheckedNum1 + uncheckedNum2;
-        Console.WriteLine($"DemonstrateBefore: Unchecked addition result: High = {resultUnchecked.High}, Low = {resultUnchecked.Low}");
+        Console.WriteLine($"[CheckedUserDefinedOperators] Before: Unchecked addition result: High = {resultUnchecked.High}, Low = {resultUnchecked.Low}");
 
     }
 
@@ -70,17 +70,17 @@ public class CheckedUserDefinedOperators
 
         // Unchecked addition
         Int128 resultUnchecked = num1 + num2;
-        Console.WriteLine($"DemonstrateAfter: Unchecked addition result: High = {resultUnchecked.High}, Low = {resultUnchecked.Low}");
+        Console.WriteLine($"[CheckedUserDefinedOperators] After: Unchecked addition result: High = {resultUnchecked.High}, Low = {resultUnchecked.Low}");
 
         try
         {
             // Checked addition
             Int128 resultChecked = checked(num1 + num2);
-            Console.WriteLine($"DemonstrateAfter: Checked addition result: High = {resultChecked.High}, Low = {resultChecked.Low}");
+            Console.WriteLine($"[CheckedUserDefinedOperators] After: Checked addition result: High = {resultChecked.High}, Low = {resultChecked.Low}");
         }
         catch (OverflowException ex)
         {
-            Console.WriteLine($"DemonstrateAfter: Overflow occurred: {ex.Message}");
+            Console.WriteLine($"[CheckedUserDefinedOperators] After: Overflow occurred: {ex.Message}");
         }
     }
 }
