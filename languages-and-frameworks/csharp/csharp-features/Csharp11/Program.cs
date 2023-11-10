@@ -4,12 +4,12 @@ Console.WriteLine("[C# 11]: Program starting");
 
 CheckedUserDefinedOperatorsDemo.Demonstrate();
 
-ExtendedNameOfScopeDemo.Demonstrate();
-ExtendedNameOfScopeDemo.DemonstrateAdvanced();
+// ExtendedNameOfScopeDemo.Demonstrate();
+// ExtendedNameOfScopeDemo.DemonstrateAdvanced();
 
-RequiredMembersDemo.Demonstrate();
+// RequiredMembersDemo.Demonstrate();
 
-StaticAbstractsInInterfacesDemo.Demonstrate();
+// StaticAbstractsInInterfacesDemo.Demonstrate();
 
 
 Console.WriteLine("[C# 11]: Program ended");

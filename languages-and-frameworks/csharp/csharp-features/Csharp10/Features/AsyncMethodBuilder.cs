@@ -1,121 +1,127 @@
-// using System;
-// using System.Runtime.CompilerServices;
-// using System.Threading.Tasks;
-// using System.Threading.Tasks.Sources;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
-// namespace Csharp10;
+namespace Csharp10;
 
-// /*
-// Title:          Async Method Builders
-// Description:    TBD
-// Link:           https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/async-method-builders.md
+public static class AsyncMethodBuilderDemo
+{
+    public static async Task Demonstrate()
+    {
+        var example = new AsyncMethodBuilder();
+        await example.DemonstrateBefore();
+        await example.DemonstrateAfter();
+    }
+}
 
-// Extra:
-// AsyncValueTaskMethodBuilder Source Code: https://github.com/dotnet/runtime/blob/aea45f7aaa8f73cb2a585d8b14ce66634d58cb68/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/AsyncValueTaskMethodBuilder.cs#L11
-// */
-// public class AsyncMethodBuilder
-// {
-//     public static async ValueTask<int> DemonstrateBefore()
-//     {
-//         await Task.Delay(100);
-//         return 42;
-//     }
+/*
+Title:          Async Method Builders
+Description:    Allow for greater control and optimization fo async operations
+Link:           https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/async-method-builders.md
 
-//     [AsyncMethodBuilder(typeof(PoolingAsyncValueTaskMethodBuilder<>))]
-//     public static async ValueTask<int> DemonstrateAfter()
-//     {
-//         await Task.Delay(10000);
-//         return 42; // Return value using the custom builder.
-//     }
-// }
+Bonus:
+AsyncValueTaskMethodBuilder Source Code: https://github.com/dotnet/runtime/blob/aea45f7aaa8f73cb2a585d8b14ce66634d58cb68/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/AsyncValueTaskMethodBuilder.cs#L11
+*/
+public class AsyncMethodBuilder
+{
+    public async Task DemonstrateBefore()
+    {
+        Console.WriteLine("[AsyncMethodBuilder] Before: Starting...");
+        await Task.Delay(2000);
+        Console.WriteLine("[AsyncMethodBuilder] Before: Completed...");
+    }
+
+    public async PerformanceMeasuringTask DemonstrateAfter()
+    {
+        Console.WriteLine("[AsyncMethodBuilder] After: Starting...");
+        await PerformanceMeasuringTask.Delay(2000);
+        Console.WriteLine("[AsyncMethodBuilder] After: Completed...");
+    }
+}
 
 
 
 
 
-// public class PoolingAsyncValueTaskMethodBuilder
-// {
-//     private ManualResetValueTaskSourceCore<bool> _core;
-//     private Action<object>? _continuation;
+public class PerformanceTrackingAsyncMethodBuilder
+{
+    private Stopwatch? _stopwatch;
+    private string? _methodName;
+    public PerformanceMeasuringTask Task => new();
 
-//     public static PoolingAsyncValueTaskMethodBuilder Create() => new();
+    public static PerformanceTrackingAsyncMethodBuilder Create() => new();
 
-//     public void SetResult()
-//     {
-//         System.Console.WriteLine("SetResult");
-//         _core.SetResult(true);
-//         if (_continuation != null)
-//         {
-//             Console.WriteLine("Invoking continuation");
-//             _continuation(null);
-//         }
-//     }
+    public void Start<TStateMachine>(ref TStateMachine stateMachine)
+        where TStateMachine : IAsyncStateMachine
+    {
+        _methodName = stateMachine.GetType().Name;
+        _stopwatch = Stopwatch.StartNew();
+        Console.WriteLine($"[AsyncMethodBuilder] PerformanceTrackingAsyncMethodBuilder: Starting async method: {_methodName}");
+        stateMachine.MoveNext();
+    }
 
-//     public void SetException(Exception exception) => _core.SetException(exception);
+    public void SetStateMachine(IAsyncStateMachine stateMachine) { }
 
-//     public ValueTask Task
-//     {
-//         get { return new ValueTask((IValueTaskSource)this, _core.Version); }
-//     }
+    public void SetException(Exception exception)
+    {
+        Console.WriteLine($"[AsyncMethodBuilder] PerformanceTrackingAsyncMethodBuilder: SetException");
+        _stopwatch?.Stop();
+        Console.WriteLine($"[AsyncMethodBuilder] PerformanceTrackingAsyncMethodBuilder: Exception in {_methodName}: {exception.Message}");
+    }
 
-//     public void Start<TStateMachine>(ref TStateMachine stateMachine)
-//         where TStateMachine : IAsyncStateMachine
-//     {
-//         Console.WriteLine("Start");
-//         stateMachine.MoveNext();
-//         Console.WriteLine("MoveNext");
-//     }
+    public void SetResult()
+    {
+        Console.WriteLine($"[AsyncMethodBuilder] PerformanceTrackingAsyncMethodBuilder: SetResult");
+        _stopwatch?.Stop();
+        Console.WriteLine($"[AsyncMethodBuilder] PerformanceTrackingAsyncMethodBuilder: Async method {_methodName} completed in {_stopwatch?.ElapsedMilliseconds} ms");
+        Task.Complete();
+    }
 
-//     public void SetStateMachine(IAsyncStateMachine stateMachine)
-//     {
-//         Console.WriteLine("State Machine is pooled");
-//     }
+    public void GetResult()
+    {
+        Console.WriteLine($"[AsyncMethodBuilder] PerformanceTrackingAsyncMethodBuilder: GetResult");
+    }
 
-//     public void AwaitOnCompleted<TAwaiter, TStateMachine>(ref TAwaiter awaiter, ref TStateMachine stateMachine)
-//         where TAwaiter : INotifyCompletion
-//         where TStateMachine : IAsyncStateMachine
-//     {
-//         awaiter.OnCompleted(GetContinuation(ref stateMachine));
-//     }
+    public void AwaitOnCompleted<TAwaiter, TStateMachine>(ref TAwaiter awaiter, ref TStateMachine stateMachine)
+        where TAwaiter : INotifyCompletion
+        where TStateMachine : IAsyncStateMachine
+    {
+        Console.WriteLine($"[AsyncMethodBuilder] PerformanceTrackingAsyncMethodBuilder: AwaitOnCompleted");
+        awaiter.OnCompleted(stateMachine.MoveNext);
+    }
 
-//     public void AwaitUnsafeOnCompleted<TAwaiter, TStateMachine>(ref TAwaiter awaiter, ref TStateMachine stateMachine)
-//         where TAwaiter : ICriticalNotifyCompletion
-//         where TStateMachine : IAsyncStateMachine
-//     {
-//         awaiter.UnsafeOnCompleted(GetContinuation(ref stateMachine));
-//     }
+    public void AwaitUnsafeOnCompleted<TAwaiter, TStateMachine>(ref TAwaiter awaiter, ref TStateMachine stateMachine)
+        where TAwaiter : ICriticalNotifyCompletion
+        where TStateMachine : IAsyncStateMachine
+    {
+        Console.WriteLine($"[AsyncMethodBuilder] PerformanceTrackingAsyncMethodBuilder: AwaitUnsafeOnCompleted");
+        awaiter.OnCompleted(stateMachine.MoveNext);
+    }
+}
 
-//     private Action GetContinuation<TStateMachine>(ref TStateMachine stateMachine)
-//         where TStateMachine : IAsyncStateMachine
-//     {
-//         System.Console.WriteLine("GetContinuation");
-//         if (_continuation == null)
-//         {
-//             Console.WriteLine("Creating continuation");
-//             _continuation = stateMachine.MoveNext;
-//         }
-//         System.Console.WriteLine("Returning continuation");
 
-//         return _continuation;
-//     }
+// Custom task-like type
+[AsyncMethodBuilder(typeof(PerformanceTrackingAsyncMethodBuilder))]
+public class PerformanceMeasuringTask
+{
+    private readonly TaskCompletionSource<object> _tcs = new();
 
-//     // Required by IValueTaskSource
-//     public void GetResult(short token)
-//     {
-//         Console.WriteLine("GetResult");
-//         _core.GetResult(token);
-//     }
+    public CustomTaskAwaiter GetAwaiter() => new(_tcs.Task);
 
-//     // Required by IValueTaskSource
-//     public ValueTaskSourceStatus GetStatus(short token)
-//     {
-//         Console.WriteLine("GetStatus");
-//         return _core.GetStatus(token);
-//     }
+    public class CustomTaskAwaiter(Task task) : INotifyCompletion
+    {
+        private readonly Task _task = task;
+        public bool IsCompleted => _task.IsCompleted;
+        public void GetResult() => _task.GetAwaiter().GetResult();
+        public void OnCompleted(Action continuation) => Task.Run(continuation);
+    }
 
-//     // Required by IValueTaskSource
-//     public void OnCompleted(Action<object> continuation, object state, short token, ValueTaskSourceOnCompletedFlags flags)
-//     {
-//         _core.OnCompleted(continuation, state, token, flags);
-//     }
-// }
+    public void Complete() => _tcs.SetResult(null);
+
+
+    public static PerformanceMeasuringTask Delay(int millisecondsDelay)
+    {
+        var task = new PerformanceMeasuringTask();
+        Task.Delay(millisecondsDelay).ContinueWith(_ => task.Complete());
+        return task;
+    }
+}
