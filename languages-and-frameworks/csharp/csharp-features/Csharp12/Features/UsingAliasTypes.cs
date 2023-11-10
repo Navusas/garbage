@@ -6,6 +6,11 @@ Description:    Allow using alias directive to reference any kind of Type
 Link:           https://github.com/dotnet/csharplang/blob/main/proposals/csharp-12.0/using-alias-types.md
 */
 
+// Prior to C# 12, we were limited to named types. 
+// tuples, pointer types, array types, etc were not supported.
+using StringDictionary = Dictionary<string, string>;
+
+// In C# 12, you can do: 
 using Point = (int x, int y);
 
 public class UsingAliasType

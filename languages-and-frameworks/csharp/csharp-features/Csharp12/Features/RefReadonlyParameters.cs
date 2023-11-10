@@ -11,7 +11,7 @@ public class RefReadonlyParams
     private ConsoleWriter consoleWriter = new ("C# 12 - RefReadonlyParams");
 
     /// <summary>
-    /// Prior to C# 12, you would have to rely on documentation to know if a method is modifying the passed parameter.
+    /// Prior to C# 12, you would have to rely on documentation to know if a method is modifying the passed ref parameter.
     /// 
     /// Example:
     /// This method prints value to the console.
@@ -21,12 +21,11 @@ public class RefReadonlyParams
     /// </summary>
     public void DemonstrateBefore(ref int readOnlyValue) 
     {
-        // Passed by reference to avoid copying.
-        // The 'in' keyword enforces that this method cannot modify the passed value.
+        // Passed by reference
         consoleWriter.Write($"Before: Value is {readOnlyValue}");
 
-        // The following line would cause a compile-time error:
-        // readOnlyValue = 10;
+        // The following line would compile & work
+        readOnlyValue = 10;
     }
 
     /// <summary>

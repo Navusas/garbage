@@ -112,7 +112,7 @@ public class PerformanceMeasuringTask
         private readonly Task _task = task;
         public bool IsCompleted => _task.IsCompleted;
         public void GetResult() => _task.GetAwaiter().GetResult();
-        public void OnCompleted(Action continuation) => Task.Run(continuation);
+        public void OnCompleted(Action continuation) => _task.ContinueWith(_ => continuation());
     }
 
     public void Complete() => _tcs.SetResult(null);

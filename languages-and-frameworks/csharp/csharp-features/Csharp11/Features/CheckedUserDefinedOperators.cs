@@ -47,7 +47,7 @@ public class CheckedUserDefinedOperators
         try
         {
             // Checked addition
-            Int128BeforeChecked resultChecked = checked(num1 + num2);
+            Int128BeforeChecked resultChecked = num1 + num2;
             Console.WriteLine($"[CheckedUserDefinedOperators] Before: Checked addition result: High = {resultChecked.High}, Low = {resultChecked.Low}");
         }
         catch (OverflowException ex)
