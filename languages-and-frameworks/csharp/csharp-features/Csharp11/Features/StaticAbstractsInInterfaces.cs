@@ -74,10 +74,10 @@ public struct DodgeCoinCurrency
     }
 
     // Implementing arithmetic operations for DodgeCoinCurrency
-    public static DodgeCoinCurrency operator +(DodgeCoinCurrency a, DodgeCoinCurrency b) => new DodgeCoinCurrency(a.Value + b.Value);
-    public static DodgeCoinCurrency operator -(DodgeCoinCurrency a, DodgeCoinCurrency b) => new DodgeCoinCurrency(a.Value - b.Value);
-    public static DodgeCoinCurrency operator *(DodgeCoinCurrency a, DodgeCoinCurrency b) => new DodgeCoinCurrency(a.Value * b.Value);
-    public static DodgeCoinCurrency operator /(DodgeCoinCurrency a, DodgeCoinCurrency b) => new DodgeCoinCurrency(a.Value / b.Value);
+    public static DodgeCoinCurrency operator +(DodgeCoinCurrency a, DodgeCoinCurrency b) => new (a.Value + b.Value);
+    public static DodgeCoinCurrency operator -(DodgeCoinCurrency a, DodgeCoinCurrency b) => new (a.Value - b.Value);
+    public static DodgeCoinCurrency operator *(DodgeCoinCurrency a, DodgeCoinCurrency b) => new (a.Value * b.Value);
+    public static DodgeCoinCurrency operator /(DodgeCoinCurrency a, DodgeCoinCurrency b) => new (a.Value / b.Value);
 }
 
 public class DodgeCoin : ISimpleArithmetic<DodgeCoinCurrency>
