@@ -70,7 +70,7 @@ public class UserRegistrationModel
 
     // [RequiredIf("IsNewsletterSubscribed")]
     [RequiredIf(nameof(IsNewsletterSubscribed))]
-    public string Email {get;set;}
+    public string Email { get; set; }
 
     public bool IsNewsletterSubscribed { get; set; }
 }

@@ -36,8 +36,8 @@ public class CheckedUserDefinedOperators
     /// </summary>
     public void DemonstrateBefore()
     {
-        Int128BeforeChecked num1 = new (1, ulong.MaxValue); 
-        Int128BeforeChecked num2 = new (2, 1);
+        Int128BeforeChecked num1 = new(1, ulong.MaxValue);
+        Int128BeforeChecked num2 = new(2, 1);
 
         // this WOULD NOT be unchecked addition.
         // throws an exception
@@ -55,8 +55,8 @@ public class CheckedUserDefinedOperators
             Console.WriteLine($"[CheckedUserDefinedOperators] Before: Overflow occurred: {ex.Message}");
         }
 
-        Int128Before uncheckedNum1 = new (1, ulong.MaxValue); 
-        Int128Before uncheckedNum2 = new (2, 1);
+        Int128Before uncheckedNum1 = new(1, ulong.MaxValue);
+        Int128Before uncheckedNum2 = new(2, 1);
 
         Int128Before resultUnchecked = uncheckedNum1 + uncheckedNum2;
         Console.WriteLine($"[CheckedUserDefinedOperators] Before: Unchecked addition result: High = {resultUnchecked.High}, Low = {resultUnchecked.Low}");
@@ -65,8 +65,8 @@ public class CheckedUserDefinedOperators
 
     public void DemonstrateAfter()
     {
-        Int128 num1 = new (1, ulong.MaxValue); 
-        Int128 num2 = new (2, 1);
+        Int128 num1 = new(1, ulong.MaxValue);
+        Int128 num2 = new(2, 1);
 
         // Unchecked addition
         Int128 resultUnchecked = num1 + num2;

@@ -28,7 +28,7 @@ public class StaticAbstractsInInterfaces
         int intResult = IntArithmetic.Add(5, 10);
         double doubleResult = DoubleArithmetic.Add(5.5, 10.5);
         Console.WriteLine($"[StaticAbstractsInInterfaces] After: Int result: {intResult}, Double result: {doubleResult}");
-    
+
         var dodgeCoin = new DodgeCoinCurrency(5.5m); // .m -> decimal
         var dodgeCoinResult = DodgeCoin.Add(dodgeCoin, dodgeCoin);
         Console.WriteLine($"[StaticAbstractsInInterfaces] After: Your dodgecoin balance: {dodgeCoinResult.Value}");
@@ -74,10 +74,10 @@ public struct DodgeCoinCurrency
     }
 
     // Implementing arithmetic operations for DodgeCoinCurrency
-    public static DodgeCoinCurrency operator +(DodgeCoinCurrency a, DodgeCoinCurrency b) => new (a.Value + b.Value);
-    public static DodgeCoinCurrency operator -(DodgeCoinCurrency a, DodgeCoinCurrency b) => new (a.Value - b.Value);
-    public static DodgeCoinCurrency operator *(DodgeCoinCurrency a, DodgeCoinCurrency b) => new (a.Value * b.Value);
-    public static DodgeCoinCurrency operator /(DodgeCoinCurrency a, DodgeCoinCurrency b) => new (a.Value / b.Value);
+    public static DodgeCoinCurrency operator +(DodgeCoinCurrency a, DodgeCoinCurrency b) => new(a.Value + b.Value);
+    public static DodgeCoinCurrency operator -(DodgeCoinCurrency a, DodgeCoinCurrency b) => new(a.Value - b.Value);
+    public static DodgeCoinCurrency operator *(DodgeCoinCurrency a, DodgeCoinCurrency b) => new(a.Value * b.Value);
+    public static DodgeCoinCurrency operator /(DodgeCoinCurrency a, DodgeCoinCurrency b) => new(a.Value / b.Value);
 }
 
 public class DodgeCoin : ISimpleArithmetic<DodgeCoinCurrency>

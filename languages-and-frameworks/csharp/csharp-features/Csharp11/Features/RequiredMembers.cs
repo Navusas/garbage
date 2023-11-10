@@ -60,7 +60,7 @@ public class RequiredMembers
 
 
         // ------------------------------------
-        
+
         // var animation = new DanceMoveAnimation();
         // Console.WriteLine(animation);
         // // Console.WriteLine(animation.ToDanceMoveIdentifier());
@@ -138,7 +138,7 @@ public class RequiredMembersAfter
         public required PersonTitle Title { get; set; }
 
         public override string ToString() => $"{Title} {FirstName} {MiddleName} {LastName}";
-        
+
         // Watchout 1: Required members can't have constructors
         //
         // public RequiredPerson(string firstName) {
@@ -152,7 +152,7 @@ public class RequiredMembersAfter
         // Watchout 3: _field is not at least as visible as Base.
         //
         // protected required int _field; 
-    
+
         // Watchout 4: PropInner cannot be set inside Base or Derived
         // 
         // protected class Inner
@@ -163,13 +163,13 @@ public class RequiredMembersAfter
         // Watchout 5: Required member must have a setter or initer
         //
         // public required int Prop3 { get; }
-        
+
         // Watchout 6: Required member setter must be at least as visible as the constructor of Derived
         //
         // public required int Prop4 { get; internal set; } 
 
     }
-    
+
     public class RequiredStudent : RequiredPerson
     {
         public required Guid StudentId { get; init; }
