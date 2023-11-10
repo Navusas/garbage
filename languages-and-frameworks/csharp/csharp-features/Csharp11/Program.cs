@@ -9,6 +9,7 @@ ExtendedNameOfScopeDemo.DemonstrateAdvanced();
 
 RequiredMembersDemo.Demonstrate();
 
+StaticAbstractsInInterfacesDemo.Demonstrate();
 
 
 Console.WriteLine("[C# 11]: Program ended");
