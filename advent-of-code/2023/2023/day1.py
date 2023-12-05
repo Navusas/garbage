@@ -43,8 +43,8 @@ def part1():
             answer += numbers[0].__str__()
 
         sum += int(answer)
-        print(f"Line: {line} - Numbers: {numbers}. Choosing {answer} - Sum: {sum}")
-    print(f"Sum: {sum}")
+        # print(f"Line: {line} - Numbers: {numbers}. Choosing {answer} - Sum: {sum}")
+    print(f"Part 1 answer: {sum}")
 
 ##########################################
 ## Task
@@ -71,46 +71,33 @@ def part2():
     with open('2023/day1-p2.input') as f:
         lines = f.readlines()
 
-    # list of strings
-    numbers = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
-    numbers_as_str = [ "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" ]
-    all_numbers = numbers + numbers_as_str
+    numbers_map = {
+        "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+        "6": "6", "7": "7", "8": "8", "9": "9",
+        "one": "1", "two": "2", "three": "3", "four": "4", "five": "5",
+        "six": "6", "seven": "7", "eight": "8", "nine": "9"
+    }
 
-    # lines = [line for line in lines if 5 < len(line) < 10 ]
     total_sum = 0
-    # Go through each line
     for line in lines:
-        matrix = []
         line = line.strip()
+        matrix = []
+
         print(f"Line: {line}")
-        # Look at the numnbers
-        for num in all_numbers:
-
-            # If number (digit or string) is inside string
-            # we will build a little "matrix" of which number appeared where
-            # and then we will look at the index of the number in the line
-            if num in line:
-                number_found = all_numbers[all_numbers.index(num)]
-                index_at = line.index(num)
-
-                if number_found in numbers:
-                    number_found_as_digit = number_found
-                else:
-                    number_found_as_digit = numbers[numbers_as_str.index(number_found)]
-
-                matrix += [ [index_at, number_found_as_digit] ]
-                # print(f"Line: {line} - Found: {number_found} (or {number_found_as_digit}) - Index: {index_at}")
+        for num_word, digit in numbers_map.items():
+            play_line = line
+            while num_word in play_line:
+                index_at = play_line.index(num_word)
+                matrix.append([index_at, digit])
+                play_line = play_line.replace(num_word, "", 1)
+                # print(f"Line: {line} - Found: {num_word} - Index: {index_at}")
         
-        # print(f"Matrix: {matrix}")
-        # Sort the matrix by the index
         matrix.sort(key=lambda x: x[0])
-        # print(f"Sorted Matrix: {matrix}")
-
-        matrix_sum =matrix_to_sum(matrix);
-        print(f"Matrix Sum: {matrix_sum} -- Total Sum: {total_sum}")
+        matrix_sum = matrix_to_sum(matrix)
+        print(f"- Matrix: {matrix} - Matrix Sum: {matrix_sum} - Total Sum: {total_sum}")
         total_sum += matrix_sum
     
-    print(f"Total Sum: {total_sum}")
+    print(f"Part 2 answer: {total_sum}")
 
 
 def matrix_to_sum(matrix):
@@ -123,11 +110,11 @@ def matrix_to_sum(matrix):
     if len(matrix) > 1:
         answer += matrix[-1][1]
     else:
-        answer += matrix[0][1].__str__()
+        answer += matrix[0][1]
     sum += int(answer)
     return sum
 
 if __name__ == "__main__":
     print("Day 1: Trebuchet?!")
-    # part1()
+    part1()
     part2()
