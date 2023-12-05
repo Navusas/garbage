@@ -68,8 +68,15 @@ def part1():
 ## Implementation
 ##########################################
 def part2():
+    """
+    I am going to simply loop through a line, and then build a "matrix" of
+    all the digits (letters or actual digits) I found, recording their indexes.
+    
+    Once it's done I will sort the matrix by the index, and then sum the first
+    and last digit of the matrix.
+    """
     with open('2023/day1-p2.input') as f:
-        lines = f.readlines()
+        lines = f.read().splitlines()
 
     numbers_map = {
         "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
@@ -82,7 +89,6 @@ def part2():
     for line in lines:
         line = line.strip()
         matrix = []
-
         print(f"Line: {line}")
         for num_word, digit in numbers_map.items():
             play_line = line
@@ -90,29 +96,20 @@ def part2():
                 index_at = play_line.index(num_word)
                 matrix.append([index_at, digit])
                 play_line = play_line.replace(num_word, "", 1)
-                # print(f"Line: {line} - Found: {num_word} - Index: {index_at}")
         
         matrix.sort(key=lambda x: x[0])
-        matrix_sum = matrix_to_sum(matrix)
+        matrix_sum = matrix_first_and_last_num_sum(matrix)
         print(f"- Matrix: {matrix} - Matrix Sum: {matrix_sum} - Total Sum: {total_sum}")
         total_sum += matrix_sum
     
     print(f"Part 2 answer: {total_sum}")
 
 
-def matrix_to_sum(matrix):
-    """
-    Kind of like day1 implementation ,but uses a matrix to calculate the sum
-    """
-    sum = 0
-    if len(matrix) > 0:
-        answer = matrix[0][1]
-    if len(matrix) > 1:
-        answer += matrix[-1][1]
-    else:
-        answer += matrix[0][1]
-    sum += int(answer)
-    return sum
+def matrix_first_and_last_num_sum(matrix):
+    f_num_word, f_digit = matrix[0] if len(matrix) > 0 else ["0", "0"]
+    _, l_digit = matrix[-1] if len(matrix) > 1 else [f_num_word, f_digit]
+
+    return int(f_digit) * 10 + int(l_digit)
 
 if __name__ == "__main__":
     print("Day 1: Trebuchet?!")
