@@ -32,8 +32,8 @@ catch
 Using boolean flag is better, because it preserves the original stack trace. 
 
 ## Results
-It does indeed have a different stack trace, but for me personally it's not any clearer. 
-I have found that having an inner (in-line) method is much better from code readability, and debugging / stack tracing reading perspective. 
+It does indeed have a different stack trace. Seems like the way async exceptions are rethrown in .NET is not as easy as I iniaitially thought.
+From what I understand, when the exception is caught, and then another task is awaited within that same catch statement, .NET just essentially starts a brand new stack trace and does not preserve the old stack trace. 
 
 Here is a code with stack traces:
 ```csharp
@@ -98,6 +98,7 @@ public class OtherClass
 
    /// <summary>
    /// Stack Trace:
+   ///      [Essentially like option 2] 
    ///      at ExceptionStackTraceIntegrity.AnotherOtherClass.ThrowArgumentException() in /Users/domg/dev/repos/my/playground/languages-and-frameworks/csharp/ExceptionStackTraceIntegrity/ExceptionStackTraceIntegrity/AnotherOtherClass.cs:line 7
    ///      at ExceptionStackTraceIntegrity.OtherClass.<ChildCLassThrowsExceptionInInlineMethod>g__CallWithPrivillegedAccess|3_0() in /Users/domg/dev/repos/my/playground/languages-and-frameworks/csharp/ExceptionStackTraceIntegrity/ExceptionStackTraceIntegrity/OtherClass.cs:line 71
    ///      at ExceptionStackTraceIntegrity.OtherClass.ChildCLassThrowsExceptionInInlineMethod() in /Users/domg/dev/repos/my/playground/languages-and-frameworks/csharp/ExceptionStackTraceIntegrity/ExceptionStackTraceIntegrity/OtherClass.cs:line 79
