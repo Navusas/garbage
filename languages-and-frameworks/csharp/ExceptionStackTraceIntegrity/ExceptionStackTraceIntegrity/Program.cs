@@ -42,3 +42,15 @@ catch (Exception ex)
     // Log the stack trace of the exception to the console
     Console.WriteLine(ex.StackTrace);
 }
+
+Console.WriteLine("-----------");
+
+try
+{
+    await attempt.OneWithSuccessFlag();
+}
+catch (Exception ex)
+{
+    // Log the stack trace of the exception to the console
+    Console.WriteLine(ex.StackTrace);
+}
